@@ -19,3 +19,13 @@ function rowSumOddNumbers(n) {
 }
 //--------------------------------------------------------
 
+// You are supposed to write a function which returns a string given with evey character on the even index of character in a word made upper, 
+// and every odd index of a character in a word made to lower
+
+function toWeirdCase(string){
+  const splitedString=string.split(' ');
+      const result=splitedString.map(word=>
+             word.split('').map((char,index)=>index%2==0? char.toUpperCase():char.toLowerCase()).join('')).join(' ');
+return result;
+}
+
