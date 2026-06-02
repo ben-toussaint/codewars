@@ -78,3 +78,30 @@ function longestPalindrome(s){
 }
 
 console.log(longestPalindrome(s)); // 7
+
+///-----------------------------------------------------------------------
+
+// One-time initializer
+
+// You are building a widget library. Some setup work — attaching event listeners, injecting styles, measuring layout — should happen exactly once per element, no matter how many times the user calls setup().
+
+// Write a function createSetup(initFn) that takes a callback initFn and returns a new function. The returned function accepts a DOM-like object (el) and:
+// — runs initFn(el) the first time it is called with that element
+// — does nothing on any subsequent call with the same element
+// — still runs initFn normally for new, unseen elements
+// — does not leak memory when elements are no longer referenced elsewhere
+
+function createSetup(initFn) {
+  // your code here
+const ws= new WeakSet();
+
+function CheckingElementUsage(element){
+if(ws.has(element))return;
+ws.add(element);//adding the element in the storage so that it won't be added for the second time.
+initFn(element);//calling the callback to do the action on the element.
+}
+return CheckingElementUsage;
+}
+
+
+
