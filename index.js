@@ -161,3 +161,74 @@ class Dog extends Animal {
     return `Hello ${this.master}`;
   }
 }
+//------------------------------------------------------------------------------
+// .Unique Products Report
+// You are given an array of orders:
+
+const orders= [
+  { customer:"Ali", product:"Laptop" },
+  { customer:"Sara", product:"Mouse" },
+  { customer:"Ali", product:"Laptop" },
+  { customer:"John", product:"Keyboard" },
+  { customer:"Sara", product:"Mouse" },
+  { customer:"Ali", product:"Monitor" }
+];
+
+
+// Task:
+
+// Use for of Loop, Set, and destructuring
+
+// Write a function createReport(orders) that returns:
+
+{
+uniqueProducts: ["Laptop","Mouse","Keyboard","Monitor"],
+firstProduct:"Laptop",
+totalUnique:4
+}
+///////Solution.....
+function createReport(orders){
+    
+    let uniqueProducts=[];
+    let store=new Set();
+   for(order of orders){
+       if(!(store.has(order.product))){
+           store.add(order.product);
+           uniqueProducts.push(order.product);
+       }
+   }
+   
+   
+   return {uniqueProducts:uniqueProducts, firstProduct:uniqueProducts[0],totalUnique:uniqueProducts.length};
+}
+
+console.log(createReport(orders))
+//-----------------------------------------------------------------------------------------
+// 1.You are given an array of notifications. Each notification has a message and a delay.
+
+const notifications= [
+  { message:"You have a new message", delay:1000 },
+  { message:"Your download is ready", delay:3000 },
+  { message:"Battery is low", delay:2000 },
+  { message:"Friend is online", delay:4000 }
+];
+
+
+// Task:
+// Print each message using setTimeout after its given delay.
+
+// Format:
+
+// [1s] You have a new message
+// [2s] Battery is low
+// [3s] Your download is ready
+// [4s] Friend is online
+
+/////////////solution 
+
+function ExecutingMessage(notifications){
+    for(let notification of notifications){
+       setTimeout(()=>{console.log(notification.message)},notification.delay)
+    }
+}
+ExecutingMessage(notifications)
