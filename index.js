@@ -232,3 +232,70 @@ function ExecutingMessage(notifications){
     }
 }
 ExecutingMessage(notifications)
+//-------------------------------------------------------------------------------------
+// Complete the solution so that it splits the string into strings of two characters in a list/array (depending on the language you use). If the string contains an odd number of characters then it should replace the missing second character of the final pair with an underscore ('_').
+
+// Examples:
+
+// * 'abc' =>  ['ab', 'c_']
+// * 'abcdef' => ['ab', 'cd', 'ef']
+
+
+//solution 
+function solution(str){
+  if(!(str.length%2==0)){
+   str+='_'
+  }
+ const result=str.match(/\w{2}/g);
+  return result || [];
+}
+//-----------------------------------------------------------------------------------------------
+//Creating a function that extracts an email inside a string using regex
+// extracting an email
+const string='This is my email mbentoussaint@gmail.com I like it and this is his email eva@gmail.com';
+function extractEmail(email){
+    return email.match(/[a-zA-Z0-9_-]+@[a-zA-Z]+\.[a-zA-Z]{2,}/g);
+}
+console.log(extractEmail(string));
+//------------------------------------------------------------------------------------------------
+// Some numbers have funny properties. For example:
+
+// 89 --> 8¹ + 9² = 89 * 1
+// 695 --> 6² + 9³ + 5⁴= 1390 = 695 * 2
+// 46288 --> 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
+// Given two positive integers n and p, we want to find a positive integer k, if it exists, such that the sum of the digits of n raised to consecutive powers starting from p is equal to k * n.
+
+// In other words, writing the consecutive digits of n as a, b, c, d ..., is there an integer k such that :
+
+// (a^p+b^p+1+c^p+2+d^p+3+...)=n∗k(a^p +b^p+1 +c^p+2 +d^p+3 +...)=n∗k
+// If it is the case we will return k, if not return -1.
+
+// Note: n and p will always be strictly positive integers.
+
+// Examples:
+// n = 89; p = 1 ---> 1 since 8¹ + 9² = 89 = 89 * 1
+
+// n = 92; p = 1 ---> -1 since there is no k such that 9¹ + 2² equals 92 * k
+
+// n = 695; p = 2 ---> 2 since 6² + 9³ + 5⁴= 1390 = 695 * 2
+
+// n = 46288; p = 3 ---> 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
+//solution 
+function digPow(n, p){
+  let elements=n.toString().split('');
+  let newElements=[];
+  let ptrack=p;
+  for(let i=0;i<elements.length;i++){
+    newElements.push(elements[i]**ptrack);
+    ptrack++;
+  }
+    const exponentSum=newElements.reduce((acc,next)=>acc+next);
+    //findig k
+    for(let k=1;k<1000000;k++){
+        if((n*k)==exponentSum){
+            return k;
+        }
+    }
+  return -1;
+}
+////-----------------------------------------------------------------------------------------------------------------
