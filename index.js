@@ -370,3 +370,61 @@ const stringArr=s.split('');
     }
   }
 }
+//////////////////////////////------------------------------------------------------------
+/*Snail Sort
+Given an n x n array, return the array elements arranged from outermost elements to the middle element, traveling clockwise.
+
+array = [[1,2,3],
+         [4,5,6],
+         [7,8,9]]
+snail(array) #=> [1,2,3,6,9,8,7,4,5]
+For better understanding, please follow the numbers of the next array consecutively:
+
+array = [[1,2,3],
+         [8,9,4],
+         [7,6,5]]
+snail(array) #=> [1,2,3,4,5,6,7,8,9]*/
+//solution
+function snail(array) {
+    const n=array[0].length;
+    let top=0;
+    let right=n-1;
+    let bottom=n-1;
+    let left=0;
+    let resultArr=[];
+    while(top<=bottom&&left<=right){
+        //from left to right
+        if(top<=bottom){
+            for(let col=left;col<=right;col++){
+                resultArr.push(array[top][col]);
+            }
+        }
+        top++;
+        //from top to bottom
+            for(let rw=top;rw<=bottom;rw++){
+                resultArr.push(array[rw][right])
+            }
+        right--;
+        
+        //from right to left
+            for(let col=right;col>=left;col--){
+            resultArr.push(array[bottom][col]);
+        }
+        bottom--;
+        
+        //from bottom to top
+        
+             for(let rw=bottom;rw>=top;rw--){
+            resultArr.push(array[rw][left]);
+        }
+        left++;
+        
+       
+    }
+    return resultArr
+}
+
+const array=[[1,2,3],
+             [4,5,6],
+             [7,8,9]];
+console.log(snail(array))
