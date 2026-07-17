@@ -470,3 +470,49 @@ Array.prototype.numberOfOccurrences = function (element) {
     
     return counter;
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*You throw a ball vertically upwards with an initial speed v0 (in km per hour).
+
+The height h of the ball at each time t is given by 
+  
+h
+=
+v
+0
+⋅
+t
+−
+0.5
+⋅
+g
+⋅
+t
+⋅
+t
+  
+h=v 
+0
+​
+ ⋅t−0.5⋅g⋅t⋅t, where g is the Earth's gravity 
+(
+g
+≈
+9.81
+ 
+m
+/
+s
+2
+)
+(g≈9.81m/s 
+2
+ ).
+
+A device is recording at every tenth of second the height of the ball.
+
+For example, with v0 = 15 km/h, the device gets something of the following form: (0, 0.0), (1, 0.367...), (2, 0.637...), (3, 0.808...), (4, 0.881..) ... 
+where the first number is the time in tenths of a second and the second number the height in meter.*/
+
+//solution
+function maxBall(v0) {return Math.round(((v0/3.6)/9.81)*10)
+}
