@@ -516,3 +516,14 @@ where the first number is the time in tenths of a second and the second number t
 //solution
 function maxBall(v0) {return Math.round(((v0/3.6)/9.81)*10)
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*Very simple, given a number, find its opposite (additive inverse).
+
+Examples:
+
+1: -1
+14: -14
+-34: 34*/
+//solution
+function opposite(number) {
+return number*-1}
