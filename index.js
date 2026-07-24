@@ -644,3 +644,23 @@ function towerBuilder(nFloors) {
   return final
 }
 console.log(towerBuilder(3))
+////////////////////////////////////////////////////////////////////////////////////
+/*Write a function, which takes a non-negative integer (seconds) as input and returns the time in a human-readable format (HH:MM:SS)
+
+HH = hours, padded to 2 digits, range: 00 - 99
+MM = minutes, padded to 2 digits, range: 00 - 59
+SS = seconds, padded to 2 digits, range: 00 - 59
+The maximum time never exceeds 359999 (99:59:59)
+
+You can find some examples in the test fixtures.*/
+//solution 
+function humanReadable (seconds) {
+  const hours=Math.floor(seconds/3600);
+  const forHours=String(hours).padStart(2,'0')
+  const minutesRem=seconds%3600;
+  const minutes=Math.floor(minutesRem/60);
+  const forMin=String(minutes).padStart(2,'0');
+  const secondsRem=minutesRem%60
+  const forSec=String(secondsRem).padStart(2,'0')
+  return `${forHours}:${forMin}:${forSec}`;
+}
