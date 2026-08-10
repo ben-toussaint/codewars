@@ -707,3 +707,72 @@ function cakes(recipe, available) {
       return 0;
   }
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*Greed is a dice game played with five six-sided dice. Your mission, should you choose to accept it, is to score a throw according to these rules. You will always be given an array with five six-sided dice values.
+
+ Three 1's => 1000 points
+ Three 6's =>  600 points
+ Three 5's =>  500 points
+ Three 4's =>  400 points
+ Three 3's =>  300 points
+ Three 2's =>  200 points
+ One   1   =>  100 points
+ One   5   =>   50 point
+Each of 5 dice can only be counted once in each roll. For example, a given "5" can only count as part of a triplet (contributing to the 500 points) or as a single 50 points, but not both in the same roll.
+
+Example scoring
+
+ Throw       Score
+ ---------   ------------------
+ 5 1 3 4 1   250:  50 (for the 5) + 2 * 100 (for the 1s)
+ 1 1 1 3 1   1100: 1000 (for three 1s) + 100 (for the other 1)
+ 2 4 4 5 4   450:  400 (for three 4s) + 50 (for the 5)
+Note: your solution must not modify the input array.*/
+//Solution
+function score( dice ) {
+  // Fill me in!
+  let output=0
+  const ones=dice.filter(num=>num==1).length;
+  const twos=dice.filter(num=>num==2).length;
+  const threes=dice.filter(num=>num==3).length;
+  const fours=dice.filter(num=>num==4).length;
+  const fives=dice.filter(num=>num==5).length;
+  const sixs=dice.filter(num=>num==6).length;
+  
+  //for ones
+  if(ones<3){
+    for(let i=0;i<ones;i++){
+      output+=100
+    }
+  }
+  if(ones==3)output+=1000;
+  else if(ones>3){
+    output+=1000;
+    let tempo=ones-3;
+    for(let i=0;i<tempo;i++){
+      output+=100
+    }
+  }
+  
+  
+  //five
+  if(fives<3){
+    for(let i=0;i<fives;i++){
+      output+=50
+    }
+  }
+    if(fives==3)output+=500;
+  else if(fives>3){
+    output+=500;
+    let tempo=fives-3;
+    for(let i=0;i<tempo;i++){
+      output+=50
+    }
+  }
+
+  if(twos>=3)output+=200;
+  if(threes>=3)output+=300;
+  if(fours>=3)output+=400;
+  if(sixs>=3)output+=600;
+  return output
+}
