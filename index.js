@@ -869,3 +869,30 @@ function phone(strng, num) {
 
   return `Phone => ${num}, Name => ${Name}, Address => ${Address}`;
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/*Welcome.
+
+In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+
+If anything in the text isn't a letter, ignore it and don't return it.
+
+"a" = 1, "b" = 2, etc.
+
+Example
+Input = "The sunset sets at twelve o' clock."
+Output = "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"*/
+//solution....
+function alphabetPosition(text) {
+  let text1 = text.toLowerCase();
+  const alph = "abcdefghijklmnopqrstuvwxyz";
+  const alphArr = alph.split("");
+  let output = [];
+  for (let char of text1) {
+    for (let ch of alphArr) {
+      if (char == ch) {
+        output.push(`${alphArr.indexOf(ch) + 1}`);
+      }
+    }
+  }
+  return output.join(" ");
+}
