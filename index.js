@@ -938,3 +938,17 @@ function likes(names) {
   }
   return outputText+= names.length==1? `likes this`:names.length==2||names.length==3? `like this`:'others like this';
 }
+////////////////////////////////////////////////////////
+/*Deoxyribonucleic acid, DNA is the primary information storage molecule in biological systems. It is composed of four nucleic acid bases Guanine ('G'), Cytosine ('C'), Adenine ('A'), and Thymine ('T').
+
+Ribonucleic acid, RNA, is the primary messenger molecule in cells. RNA differs slightly from DNA its chemical structure and contains no Thymine. In RNA Thymine is replaced by another nucleic acid Uracil ('U').
+
+Create a function which translates a given DNA string into RNA.
+
+For example:*/
+//solution
+function DNAtoRNA(dna) {
+  if(dna.length==0)return '';
+  return dna.replaceAll('T','U');
+  // create a function which returns an RNA sequence from the given DNA sequence
+}
