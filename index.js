@@ -952,3 +952,44 @@ function DNAtoRNA(dna) {
   return dna.replaceAll('T','U');
   // create a function which returns an RNA sequence from the given DNA sequence
 }
+
+//////////////////////////////////////////////
+/*Given a string of words, you need to find the highest scoring word.
+
+Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc.
+
+For example, the score of abad is 8 (1 + 2 + 1 + 4).
+
+You need to return the highest scoring word as a string.
+
+If two words score the same, return the word that appears earliest in the original string.
+
+All letters will be lowercase and all inputs will be valid.*/
+//solution
+function high(x){
+//   const alph='abcdefghijklmnopqlstuvwxyz';
+const arrWord=x.split(' ');
+  let highest=0;
+  let letters;
+  let hword;
+  for(let word of arrWord){
+    let sum =0;
+    letters= word.split('');
+    for (let letter of letters){
+    sum = sum+ (letter.charCodeAt(0)-96);
+      
+    }
+    if(sum>highest){
+      highest=sum;
+      hword=word;
+    }
+  }
+  return hword;
+//   for(let word of arrWord){
+//     for(let char of word){
+//       sum+=alph.indexOf(char);
+//       highest= sum>highest?sum:highest;
+//     }
+//     sum=0;
+  
+}
