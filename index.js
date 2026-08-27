@@ -1035,3 +1035,14 @@ Happy Coding!*/
 function squareDigits(num){
   return Number(num.toString().split('').map((num)=>Number(num)*num).join(''));
 }
+//////////////////////////////////////////////////////////////////////////////////////////
+/*Complete the solution so that the function will break up camel casing, using a space between words.
+
+Example
+"camelCasing"  =>  "camel Casing"
+"identifier"   =>  "identifier"
+""             =>  ""*/
+//solution
+function solution(string) {
+  return string.replaceAll(/([A-Z])/g, ' $1');
+}
